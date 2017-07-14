@@ -205,6 +205,7 @@ namespace linq
             };
 
              var millionaireReport = from p in millionares
+             orderby p.Name[p.Name.IndexOf(" ") + 1] ascending
              join bank in banks on p.Bank equals bank.Symbol
              select new{BankName = bank.Name, Customer = p.Name};
 
